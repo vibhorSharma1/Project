@@ -1,0 +1,64 @@
+/* Navigation Hover Effects */
+nav {
+    --binoculars-top-offset: 5px;
+    --items: 6;
+    --item-width: 90px;
+    --current-item: 0;
+    --enter-nav: 0;
+    position: relative;
+    overflow: visible;
+    padding-top: 40px;
+}
+
+.binoculars {
+    position: absolute;
+    left: 50%;
+    translate: -50% 0;
+    transform: translate(calc(var(--x) * var(--item-width)), calc(var(--y) * (var(--item-width) * .5)));
+    top: 0;
+    width: calc(var(--items) * var(--item-width));
+    height: 40px;
+    opacity: var(--enter-nav);
+    background-color: hsl(calc(10 + var(--current-item) * 50), 80%, calc(50% * var(--enter-nav)));
+    clip-path: inset(0 calc(100% - (var(--item-width) * (var(--current-item) + 1))) 0 calc(var(--item-width) * var(--current-item)) round 10px);
+    pointer-events: none;
+    transition: all .3s cubic-bezier(0.215, 0.610, 0.355, 1);
+    list-style: none;
+    display: flex;
+    z-index: 50;
+}
+
+.binoculars li {
+    width: var(--item-width);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: rgba(0 0 0 / .8);
+}
+
+/* Navigation Item Hover States */
+.nav-item {
+    --item-hover: 0;
+    transition: color .3s;
+}
+
+.nav-item:hover {
+    --item-hover: 1;
+}
+
+/* Mobile Navigation Styles */
+@media (max-width: 768px) {
+    .binoculars {
+        display: none;
+    }
+}
+
+/* Update the container styles */
+.nav-container {
+    position: relative;
+    width: 100%;
+    max-width: 7xl;
+    margin: 0 auto;
+    padding: 0 1rem;
+}

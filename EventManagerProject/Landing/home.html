@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Manager - Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="landing.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-lg">
+        <div class="nav-container">
+            <!-- Binoculars hover effect -->
+            <ul class="binoculars hidden md:flex">
+                <li>Home</li>
+                <li>Events</li>
+                <li>About Us</li>
+                <li>Contact</li>
+                <li>Profile</li>
+                <li>Menu</li>
+            </ul>
+            
+            <!-- Main navigation -->
+            <div class="nav-inner flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="#" class="text-xl font-bold text-blue-600">EventManager</a>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="home.html" class="nav-item text-gray-700 hover:text-blue-600">
+                        <i class="fas fa-home text-2xl"></i>
+                    </a>
+                    <a href="../Events/allEvents.html" class="nav-item text-gray-700 hover:text-blue-600">
+                        <i class="fas fa-calendar-alt text-2xl"></i>
+                    </a>
+                    <a href="../Profile/about.html" class="nav-item text-gray-700 hover:text-blue-600">
+                        <i class="fas fa-info-circle text-2xl"></i>
+                    </a>
+                    <a href="../Profile/contactUs.html" class="nav-item text-gray-700 hover:text-blue-600">
+                        <i class="fas fa-envelope text-2xl"></i>
+                    </a>
+                    <a href="../Profile/profile.html" class="nav-item text-gray-700 hover:text-blue-600">
+                        <i class="fas fa-user-circle text-2xl"></i>
+                    </a>
+                </div>
+    
+                <div class="md:hidden">
+                    <button class="text-gray-700 hover:text-blue-600">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Featured Events Section -->
+    <div class="max-w-7xl mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold mb-8">Featured Events</h2>
+        
+        <!-- Loading State -->
+        <div id="loading" class="text-center py-12">
+            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+        </div>
+
+        <!-- No Events Message -->
+        <div id="noEvents" class="hidden text-center py-12">
+            <p class="text-gray-600 text-xl">No events have been created yet. Be the first one to create an event!</p>
+            <button onclick="window.location.href='../Events/createEvent.html'" 
+                    class="mt-4 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700">
+                Create Event
+            </button>
+        </div>
+
+        <!-- Events Container -->
+        <div id="eventsContainer" class="hidden grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Events will be dynamically inserted here -->
+        </div>
+
+        <!-- Show More Button -->
+        <div id="showMoreContainer" class="hidden text-center mt-8">
+            <a href="../Events/events.html" 
+               class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700">
+                Show More Events
+            </a>
+        </div>
+
+        <!-- Add this button after the events container -->
+        <div class="fixed bottom-8 right-8">
+            <button onclick="window.location.href='../Events/createEvent.html'" 
+                    class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-full shadow-lg flex items-center space-x-2 transition-all duration-300 transform hover:scale-105">
+                <i class="fas fa-plus"></i>
+                <span>Create Event</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Example Events Section -->
+    <div id="exampleEventsSection" class="hidden max-w-7xl mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold mb-8">Example Events</h2>
+        <p class="text-gray-600 mb-8">Here are some example events to inspire you:</p>
+        <div id="exampleEventsContainer" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Example events will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Event Manager</h3>
+                    <p class="text-gray-400">Making event planning easier for everyone.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="home.html" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="../Events/allEvents.html" class="text-gray-400 hover:text-white">Events</a></li>
+                        <li><a href="../Profile/about.html" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="../Profile/contactUs.html" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Us</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fas fa-envelope mr-2"></i> info@eventmanager.com</li>
+                        <li><i class="fas fa-phone mr-2"></i> +91 1234567890</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i>xyz</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Event Manager. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="landing.js"></script>
+</body>
+</html>

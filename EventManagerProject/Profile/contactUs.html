@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Event Manager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* Navigation Styles */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: white;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.5rem 1rem;
+        }
+
+        .nav-item {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item:hover {
+            color: #4f46e5;
+        }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background-color: #4f46e5;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-item:hover::after {
+            width: 100%;
+        }
+
+        /* Contact Page Styles */
+        .contact-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+        }
+
+        .contact-header {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+
+        .contact-info {
+            background-color: #f8fafc;
+            padding: 30px;
+            border-radius: 10px;
+            height: 100%;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .info-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .info-item i {
+            font-size: 24px;
+            color: #4f46e5;
+            margin-right: 15px;
+            width: 40px;
+            text-align: center;
+        }
+
+        .contact-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #374151;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            transition: border-color 0.3s ease;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #4f46e5;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                margin-bottom: 30px;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation Bar -->
+    <nav class="shadow-lg">
+        <div class="nav-container">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="#" class="text-xl font-bold text-indigo-600">EventManager</a>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="../Landing/home.html" class="nav-item text-gray-700">
+                        <i class="fas fa-home text-2xl"></i>
+                    </a>
+                    <a href="../Events/allEvents.html" class="nav-item text-gray-700">
+                        <i class="fas fa-calendar-alt text-2xl"></i>
+                    </a>
+                    <a href="about.html" class="nav-item text-gray-700">
+                        <i class="fas fa-info-circle text-2xl"></i>
+                    </a>
+                    <a href="contactUs.html" class="nav-item text-gray-700">
+                        <i class="fas fa-envelope text-2xl"></i>
+                    </a>
+                    <a href="profile.html" class="nav-item text-gray-700">
+                        <i class="fas fa-user-circle text-2xl"></i>
+                    </a>
+                </div>
+
+                <div class="md:hidden">
+                    <button class="text-gray-700 hover:text-indigo-600">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Content -->
+    <div class="contact-container">
+        <div class="contact-header">
+            <h1 class="text-3xl font-bold mb-2">Contact Us</h1>
+            <p class="text-lg opacity-90">Get in touch with us for your event management needs</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="contact-info">
+                <h2 class="text-2xl font-bold mb-6 text-gray-800">Contact Information</h2>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p class="text-gray-600">123 Event Street, City Name, Country</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <p class="text-gray-600">+1 234 567 8900</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <p class="text-gray-600">info@eventmanager.com</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <p class="text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h2 class="text-2xl font-bold mb-6 text-gray-800">Send us a Message</h2>
+                <form action="/submit-form" method="POST">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        function checkAuth() {
+    const user = localStorage.getItem('user');
+    if (!user) {
+        // User is not logged in, redirect to login page
+        window.location.href = '../Login/login.html';
+    }
+}
+
+// Run this when page loads
+checkAuth();
+    </script>
+</body>
+</html>

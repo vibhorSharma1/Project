@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="back-button">
+        <a href="../Landing/home.html" class="back-home">
+            <span>←</span> Back to Home
+        </a>
+    </div>
+
+    <div class="profile-container">
+        <div class="profile-header">
+            <div class="profile-avatar">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <div class="profile-info">
+                <h1 class="user-name" id="userName">User Name</h1>
+                <p class="user-title">Event Manager</p>
+            </div>
+        </div>
+
+        <div class="profile-details">
+            <div class="info-section">
+                <h2>Personal Information</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <label>Email</label>
+                        <p>user@example.com</p>
+                    </div>
+                    <div class="info-item">
+                        <label>Organization</label>
+                        <p>Company Name</p>
+                    </div>
+                    <div class="info-item">
+                        <label>Role</label>
+                        <p>Event Coordinator</p>
+                    </div>
+                    <div class="info-item">
+                        <label>City</label>
+                        <p>Mumbai</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="edit-profile">Edit Profile</button>
+                <button class="change-password">Change Password</button>
+                <button class="logout-btn">Logout</button>
+                <button class="delete-account" onclick="confirmDeleteAccount()">
+                    <i class="fas fa-trash-alt"></i> Delete Account
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Edit Profile</h2>
+            <form id="editProfileForm">
+                <div class="form-group">
+                    <label for="editName">Name:</label>
+                    <input type="text" id="editName" required>
+                </div>
+                <div class="form-group">
+                    <label for="editEmail">Email:</label>
+                    <input type="email" id="editEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="editRole">Role:</label>
+                    <input type="text" id="editRole" required>
+                </div>
+                <div class="form-group">
+                    <label for="editOccupation">Occupation:</label>
+                    <input type="text" id="editOccupation" required>
+                </div>
+                <div class="form-group">
+                    <label for="editLocation">Location:</label>
+                    <input type="text" id="editLocation" required>
+                </div>
+                <button type="submit" class="save-btn">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="profile.js"></script>
+</body>
+</html>
